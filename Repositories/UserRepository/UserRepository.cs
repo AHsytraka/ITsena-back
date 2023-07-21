@@ -17,4 +17,10 @@ public class UserRepository : IUserRepository
         await _dbContext.SaveChangesAsync();
         return user;
     }
+
+    public User GetUserByEmail(string email)
+    {
+        var user = _dbContext.Users.FirstOrDefault(u => u.Email == email);
+        return user;
+    }
 }
