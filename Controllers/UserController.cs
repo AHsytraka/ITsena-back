@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ITsena_back.Controllers;
 
 [ApiController]
-[Route("/Controller")]
+[Route("/User")]
 public class UserController: ControllerBase
 {
     private readonly AppDbContext _dbContext;

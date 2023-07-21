@@ -21,8 +21,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     }
 );
 
-//DI
+//Services DI
 builder.Services.AddScoped<JwtService>();
+builder.Services.AddTransient<IEmailSender,EmailSender>();
+//features DI
 builder.Services.AddScoped<IUserRepository,UserRepository>();
 
 var app = builder.Build();
