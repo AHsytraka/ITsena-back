@@ -23,8 +23,8 @@ public class UserController: ControllerBase
     [HttpPost("Signup")]
     public async Task<IActionResult> Signup(User dto)
     {
-        User user = new User {
-            Name = dto.Name,
+        User user = new() {
+            Username = dto.Username,
             Email = dto.Email,
             Password = BCrypt.Net.BCrypt.HashPassword(dto.Password)
         };
@@ -44,4 +44,4 @@ public class UserController: ControllerBase
         
         return Ok(user);
     }
-}
+} 

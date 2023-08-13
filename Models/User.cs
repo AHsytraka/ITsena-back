@@ -6,11 +6,11 @@ public class User
 {
     [Key]
     [JsonIgnore]
-    public Guid Id {get;set;}
+    public Guid UserId {get; set;}
 
     [Required]
     [MinLength(2)][MaxLength(150)]
-    public string Name {get; set;}
+    public string Username {get; set;}
 
     [Required]
     [EmailAddress]
