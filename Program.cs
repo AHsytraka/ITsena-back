@@ -1,3 +1,4 @@
+using ITsena_back;
 using ITsena_back.Data;
 using ITsena_back.Repositories;
 using ITsena_back.Services;
@@ -6,12 +7,17 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Services DI
+builder.Services.AddScoped<JwtService>();
+builder.Services.AddTransient<IEmailSender,EmailSender>();
+
+//features DI
+builder.Services.AddScoped<IUserRepository,UserRepository>();
+builder.Services.AddScoped<IProductRepository,ProductRepository>();
 
 //DBContext
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -20,12 +26,6 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
     }
 );
-
-//Services DI
-builder.Services.AddScoped<JwtService>();
-builder.Services.AddTransient<IEmailSender,EmailSender>();
-//features DI
-builder.Services.AddScoped<IUserRepository,UserRepository>();
 
 var app = builder.Build();
 

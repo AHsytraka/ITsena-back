@@ -23,4 +23,10 @@ public class UserRepository : IUserRepository
         var user = _dbContext.Users.FirstOrDefault(u => u.Email == email);
         return user;
     }
+
+    public User GetUserById(Guid guid)
+    {
+        var user = _dbContext.Users.FirstOrDefault(u => u.UserId == guid);
+        return user;
+    }
 }

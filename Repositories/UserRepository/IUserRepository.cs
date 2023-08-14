@@ -6,4 +6,5 @@ public interface IUserRepository
 {
     public Task<User> SignupUser(User user);
     public User GetUserByEmail(string email);
+    public User GetUserById(Guid guid);
 }

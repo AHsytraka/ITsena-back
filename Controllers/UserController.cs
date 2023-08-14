@@ -10,12 +10,10 @@ namespace ITsena_back.Controllers;
 [Route("/User")]
 public class UserController: ControllerBase
 {
-    private readonly AppDbContext _dbContext;
     private readonly JwtService _jwtService;
     private readonly IUserRepository _userRepository;
-    public UserController(AppDbContext dbContext, IUserRepository userRepository, JwtService jwtService)
+    public UserController(IUserRepository userRepository, JwtService jwtService)
     {
-        _dbContext = dbContext;
         _jwtService = jwtService;
         _userRepository = userRepository;
     }
