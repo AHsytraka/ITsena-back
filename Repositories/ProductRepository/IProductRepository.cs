@@ -1,4 +1,6 @@
-﻿namespace ITsena_back;
+﻿using ITsena_back.Models;
+
+namespace ITsena_back.Repositories;
 
 public interface IProductRepository
 {

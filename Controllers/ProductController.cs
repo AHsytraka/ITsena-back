@@ -1,15 +1,16 @@
 ﻿using System.Net;
+using ITsena_back.Models;
 using ITsena_back.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ITsena_back;
+namespace ITsena_back.Controllers;
 
 [ApiController]
 [Route("/Product")]
 public class ProductController: ControllerBase
 {
     private readonly IProductRepository _productRepository;
-    private readonly IUserRepository _userRepository;
+    private readonly IUserRepository _userRepository; 
     public ProductController(IProductRepository productRepository, IUserRepository userRepository)
     {
         _productRepository = productRepository;
@@ -53,12 +54,12 @@ public class ProductController: ControllerBase
         catch(HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
         {
             //Handle notFound
-            return NotFound();
+            return NotFound(ex.Message);
         }
         catch(HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
         {
             //Handle Unauthorized
-            return Unauthorized();
+            return Unauthorized(ex.Message);
         }
     }
 }

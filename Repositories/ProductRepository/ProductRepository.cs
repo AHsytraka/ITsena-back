@@ -1,6 +1,7 @@
 ﻿using ITsena_back.Data;
+using ITsena_back.Models;
 
-namespace ITsena_back;
+namespace ITsena_back.Repositories;
 
 public class ProductRepository : IProductRepository
 {

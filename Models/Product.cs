@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
-using ITsena_back.Models;
 
-namespace ITsena_back;
+namespace ITsena_back.Models;
 
 public class Product
 {

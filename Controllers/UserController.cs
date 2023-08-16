@@ -1,4 +1,3 @@
-using ITsena_back.Data;
 using ITsena_back.Models;
 using ITsena_back.Repositories;
 using ITsena_back.Services;
