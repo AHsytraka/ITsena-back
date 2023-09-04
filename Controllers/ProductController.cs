@@ -10,7 +10,7 @@ namespace ITsena_back.Controllers;
 public class ProductController: ControllerBase
 {
     private readonly IProductRepository _productRepository;
-    private readonly IUserRepository _userRepository; 
+    private readonly IUserRepository _userRepository;
     public ProductController(IProductRepository productRepository, IUserRepository userRepository)
     {
         _productRepository = productRepository;
