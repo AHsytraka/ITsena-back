@@ -15,6 +15,7 @@ builder.Services.AddResponseCompression(options => {options.EnableForHttps = tru
 //Services DI
 builder.Services.AddScoped<JwtService>();
 builder.Services.AddTransient<IEmailSender,EmailSender>();
+builder.Services.AddScoped<ICacheService, CacheService>();
 
 //features DI
 builder.Services.AddScoped<IUserRepository,UserRepository>();
